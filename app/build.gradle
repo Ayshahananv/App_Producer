@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.testing.app_producer"

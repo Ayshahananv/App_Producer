@@ -15,4 +15,13 @@ class ProducerApplication : AppCompatActivity() {
         xtsBuilder.build(this)
         Log.d("Aysha", "onCreate: ended")
     }
+
+    override fun onDestroy() {
+        Log.d("Aysha", "onDestroy: ")
+        super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
 }
