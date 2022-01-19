@@ -32,7 +32,7 @@ class FeatureController(private val context:Context):IFeature {
         if (property == "wifi_status") {
             Log.d("Aysha", "startEvent: wifievent")
             //for (i in 1..50000) {
-                //Log.d("Aysha", "startEvent: loop $i")
+                Log.d("Aysha", "startEvent: loop ")
                 WifiEvent(context).start()
            // }
         }
