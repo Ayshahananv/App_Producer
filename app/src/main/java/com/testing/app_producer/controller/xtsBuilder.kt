@@ -10,10 +10,12 @@ import net.soti.xtsocket.transform.models.Feature
 
 class xtsBuilder {
     companion object {
+        private const val TAG = "Aysha"
         fun build(context: Context) {
-            Log.d("Aysha", "build: started")
-            FeatureBuilder(context).version(1).advertiseDataList(DataList.get())
-                .build(FeatureController(context))
+            Log.d(TAG, "build: started")
+                FeatureBuilder(context).advertiseDataList(DataList.get())
+                    .version(1)
+                    .build(FeatureController(context))
             Log.d("Aysha", "build function ended")
         }
     }
