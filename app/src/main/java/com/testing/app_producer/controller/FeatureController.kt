@@ -11,6 +11,9 @@ import net.soti.xtsocket.transform.interfaces.IFeature
 import net.soti.xtsocket.transform.interfaces.IType
 import net.soti.xtsocket.transform.models.XTSType
 import org.json.JSONObject
+import java.lang.IllegalStateException
+import java.math.BigInteger
+
 
 class FeatureController(private val context:Context):IFeature {
 
@@ -20,29 +23,25 @@ class FeatureController(private val context:Context):IFeature {
             "model"->XTSType(Build.MODEL)
             "manufacturer"-> XTSType(Build.MANUFACTURER)
             "ip"-> XTSType(Build.BRAND)
-            //"wifi_status"-> XTSType(WifiEvent)
             else -> XTSType(Build.USER)
         }
     }
 
     override fun startEvent(property: String) {
         Log.d("Aysha", "startEvent: ")
-        if(property=="wifi_status"){
+        if (property == "wifi_status") {
             Log.d("Aysha", "startEvent: wifievent")
-            WifiEvent(context).start()
-        }
-        if(property=="device_usage"){
-            Log.d("Aysha", "startEvent: deviceusage")
-            DeviceUsage().start()
+            //for (i in 1..50000) {
+                //Log.d("Aysha", "startEvent: loop $i")
+                WifiEvent(context).start()
+           // }
         }
     }
 
     override fun stopEvent(property: String) {
+        Log.d("aysha", "stopEvent: wifi")
         if(property=="wifi_status"){
             WifiEvent(context).stop()
-        }
-        if(property=="device_usage"){
-            DeviceUsage().stop()
         }
     }
 }
